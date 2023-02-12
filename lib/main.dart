@@ -69,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         builder: (context) => FirstPage()));
               },
               child: Text(
-                "1.Test Button",
+                "基礎工学部",
                 style: TextStyle(
                   color: Colors.white,
                 ),
@@ -79,7 +79,37 @@ class _MyHomePageState extends State<MyHomePage> {
             ElevatedButton(
               onPressed: () {},
               child: Text(
-                "2.Test Button",
+                "工学部",
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              style: ElevatedButton.styleFrom(onPrimary: Colors.black),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: Text(
+                "理学部",
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              style: ElevatedButton.styleFrom(onPrimary: Colors.black),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: Text(
+                "法学部",
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              style: ElevatedButton.styleFrom(onPrimary: Colors.black),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: Text(
+                "経済学部",
                 style: TextStyle(
                   color: Colors.white,
                 ),

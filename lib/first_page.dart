@@ -37,41 +37,87 @@ class _CheckListState extends State<CheckList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(centerTitle: true, title: Text("test button")),
-      body: DataTable(
-        columns: [
-          DataColumn(
-            label: Text('名前'),
-          ),
-          DataColumn(
-            label: Text('年齢'),
-          ),
-          DataColumn(
-            label: Text('性別'),
-          ),
-        ],
-        rows: [
-          DataRow(
-            cells: [
-              DataCell(Text('太郎')),
-              DataCell(Text('19')),
-              DataCell(Text('男')),
-            ],
-          ),
-          DataRow(
-            cells: [
-              DataCell(Text('さゆり')),
-              DataCell(Text('24')),
-              DataCell(Text('女')),
-            ],
-          ),
-          DataRow(
-            cells: [
-              DataCell(Text('吾郎')),
-              DataCell(Text('34')),
-              DataCell(Text('男')),
-            ],
-          ),
-        ],
+      body: Container(
+        child: DataTable(
+          columns: [
+            DataColumn(
+              label: Text(''),
+            ),
+            DataColumn(
+              label: Text('授業名'),
+            ),
+            DataColumn(
+              label: Text('区分'),
+            ),
+            DataColumn(
+              label: Text('単位数'),
+            ),
+          ],
+          rows: [
+            DataRow(
+              cells: [
+                DataCell(
+                  Checkbox(
+                    activeColor: Colors.blue, // Onになった時の色を指定
+                    value: _flag, // チェックボックスのOn/Offを保持する値
+                    onChanged: _handleCheckbox, // チェックボックスを押下した際に行う処理
+                  ),
+                ),
+                DataCell(Text('学問への扉')),
+                DataCell(Text('教養教育科目')),
+                DataCell(Text('2')),
+              ],
+            ),
+            DataRow(
+              cells: [
+                DataCell(
+                  Checkbox(
+                    activeColor: Colors.blue, // Onになった時の色を指定
+                    value: _flag, // チェックボックスのOn/Offを保持する値
+                    onChanged: _handleCheckbox, // チェックボックスを押下した際に行う処理
+                  ),
+                ),
+                DataCell(Text('基盤教養教育科目')),
+                DataCell(Text('教養教育科目')),
+                DataCell(Text('2')),
+              ],
+            ),
+            DataRow(
+              cells: [
+                DataCell(
+                  Checkbox(
+                    activeColor: Colors.blue, // Onになった時の色を指定
+                    value: _flag, // チェックボックスのOn/Offを保持する値
+                    onChanged: _handleCheckbox, // チェックボックスを押下した際に行う処理
+                  ),
+                ),
+                DataCell(Text('基盤教養教育科目')),
+                DataCell(Text('教養教育科目')),
+                DataCell(Text('2')),
+              ],
+            ),
+            DataRow(
+              cells: [
+                DataCell(
+                  Checkbox(
+                    activeColor: Colors.blue, // Onになった時の色を指定
+                    value: _flag, // チェックボックスのOn/Offを保持する値
+                    onChanged: _handleCheckbox, // チェックボックスを押下した際に行う処理
+                  ),
+                ),
+                DataCell(Text('基盤教養教育科目')),
+                DataCell(Text('教養教育科目')),
+                DataCell(Text('2')),
+              ],
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        //onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
       ),
       // body: Center(
       //     child: Row(
