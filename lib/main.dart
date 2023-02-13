@@ -1,8 +1,11 @@
+//import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:sample/first_page.dart';
 
 void main() {
   runApp(const MyApp());
+  //print("test");
 }
 
 class MyApp extends StatelessWidget {
@@ -11,11 +14,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: '健康診断',
+      title: '単位取得状況',
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: const MyHomePage(title: '健康診断'),
+      home: const MyHomePage(title: '単位取得状況'),
     );
   }
 }
@@ -66,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     context,
                     MaterialPageRoute(
                         // （2） 実際に表示するページ(ウィジェット)を指定する
-                        builder: (context) => FirstPage()));
+                        builder: (context) => Home()));
               },
               child: Text(
                 "基礎工学部",

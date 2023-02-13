@@ -1,153 +1,90 @@
 import 'package:flutter/material.dart';
 
-class FirstPage extends StatelessWidget {
-  const FirstPage({super.key});
+class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
+
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  // List<Map> _list = List.generate(
+  //   2,
+  //   (index) => {
+  //     'check': false,
+  //     'name': 'Product $index',
+  //     'credit': 2,
+  //   },
+  // );
+  List<Map> _list = [
+    {'check': false, 'name': '学問の扉', 'credit': 2},
+    {'check': false, 'name': '基盤教養教育科目', 'credit': 2},
+    {'check': false, 'name': '基盤教養教育科目', 'credit': 2},
+    {'check': false, 'name': '基盤教養教育科目', 'credit': 2},
+    {'check': false, 'name': '健康・スポーツ教育科目', 'credit': 1},
+    {'check': false, 'name': '健康・スポーツ教育科目', 'credit': 1},
+    {'check': false, 'name': '情報教育科目', 'credit': 2},
+    {'check': false, 'name': '情報教育科目', 'credit': 2},
+    {'check': false, 'name': '高度教養教育科目', 'credit': 1},
+    {'check': false, 'name': '高度教養教育科目', 'credit': 1},
+    {'check': false, 'name': '専門基礎教育科目', 'credit': 2},
+    {'check': false, 'name': '専門基礎教育科目', 'credit': 2},
+    {'check': false, 'name': '専門基礎教育科目', 'credit': 2},
+    {'check': false, 'name': '専門基礎教育科目', 'credit': 2},
+    {'check': false, 'name': '専門基礎教育科目', 'credit': 2},
+    {'check': false, 'name': '専門基礎教育科目', 'credit': 2},
+    {'check': false, 'name': '専門基礎教育科目', 'credit': 2},
+    {'check': false, 'name': '専門基礎教育科目', 'credit': 2},
+    {'check': false, 'name': '専門基礎教育科目', 'credit': 2},
+    {'check': false, 'name': 'マルチリンガル教育科目（第一外国語）', 'credit': 1},
+    {'check': false, 'name': 'マルチリンガル教育科目（第一外国語）', 'credit': 1},
+    {'check': false, 'name': 'マルチリンガル教育科目（第一外国語）', 'credit': 1},
+    {'check': false, 'name': 'マルチリンガル教育科目（第一外国語）', 'credit': 1},
+  ];
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'チェックリスト',
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-      ),
-      home: const CheckList(title: 'チェックリスト'),
-    );
-  }
-}
-
-class CheckList extends StatefulWidget {
-  const CheckList({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<CheckList> createState() => _CheckListState();
-}
-
-class _CheckListState extends State<CheckList> {
-  bool _flag = false;
-
-  void _handleCheckbox(bool? e) {
-    setState(() {
-      _flag = e!;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(centerTitle: true, title: Text("test button")),
-      body: Container(
-        child: DataTable(
-          columns: [
-            DataColumn(
-              label: Text(''),
-            ),
-            DataColumn(
-              label: Text('授業名'),
-            ),
-            DataColumn(
-              label: Text('区分'),
-            ),
-            DataColumn(
-              label: Text('単位数'),
-            ),
-          ],
-          rows: [
-            DataRow(
-              cells: [
-                DataCell(
-                  Checkbox(
-                    activeColor: Colors.blue, // Onになった時の色を指定
-                    value: _flag, // チェックボックスのOn/Offを保持する値
-                    onChanged: _handleCheckbox, // チェックボックスを押下した際に行う処理
+    return SafeArea(
+      child: Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SizedBox(
+            child: SingleChildScrollView(
+              child: DataTable(
+                columns: [
+                  DataColumn(
+                    label: Text('授業名'),
                   ),
-                ),
-                DataCell(Text('学問への扉')),
-                DataCell(Text('教養教育科目')),
-                DataCell(Text('2')),
-              ],
-            ),
-            DataRow(
-              cells: [
-                DataCell(
-                  Checkbox(
-                    activeColor: Colors.blue, // Onになった時の色を指定
-                    value: _flag, // チェックボックスのOn/Offを保持する値
-                    onChanged: _handleCheckbox, // チェックボックスを押下した際に行う処理
+                  DataColumn(
+                    label: Text('単位'),
                   ),
-                ),
-                DataCell(Text('基盤教養教育科目')),
-                DataCell(Text('教養教育科目')),
-                DataCell(Text('2')),
-              ],
+                ],
+                rows: _list
+                    .map(
+                      (e) => DataRow(
+                        selected: e['check'],
+                        onSelectChanged: (bool? selected) {
+                          setState(() {
+                            e['check'] = selected;
+                          });
+                        },
+                        cells: [
+                          DataCell(
+                            Text('${e['name']}'),
+                          ),
+                          DataCell(
+                            Text('${e['credit']}'),
+                          ),
+                        ],
+                      ),
+                    )
+                    .toList(),
+              ),
             ),
-            DataRow(
-              cells: [
-                DataCell(
-                  Checkbox(
-                    activeColor: Colors.blue, // Onになった時の色を指定
-                    value: _flag, // チェックボックスのOn/Offを保持する値
-                    onChanged: _handleCheckbox, // チェックボックスを押下した際に行う処理
-                  ),
-                ),
-                DataCell(Text('基盤教養教育科目')),
-                DataCell(Text('教養教育科目')),
-                DataCell(Text('2')),
-              ],
-            ),
-            DataRow(
-              cells: [
-                DataCell(
-                  Checkbox(
-                    activeColor: Colors.blue, // Onになった時の色を指定
-                    value: _flag, // チェックボックスのOn/Offを保持する値
-                    onChanged: _handleCheckbox, // チェックボックスを押下した際に行う処理
-                  ),
-                ),
-                DataCell(Text('基盤教養教育科目')),
-                DataCell(Text('教養教育科目')),
-                DataCell(Text('2')),
-              ],
-            ),
-          ],
+            width: double.infinity,
+          ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        //onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
-      // body: Center(
-      //     child: Row(
-      //   mainAxisSize: MainAxisSize.min,
-      //   children: <Widget>[
-      //     Checkbox(
-      //       activeColor: Colors.blue, // Onになった時の色を指定
-      //       value: _flag, // チェックボックスのOn/Offを保持する値
-      //       onChanged: _handleCheckbox, // チェックボックスを押下した際に行う処理
-      //     ),
-      //     Text(
-      //       "内容",
-      //     ),
-      //     Checkbox(
-      //       activeColor: Colors.blue, // Onになった時の色を指定
-      //       value: _flag, // チェックボックスのOn/Offを保持する値
-      //       onChanged: _handleCheckbox, // チェックボックスを押下した際に行う処理
-      //     ),
-      //     Text(
-      //       "内容",
-      //     ),
-      //   ],
-      // )
-      // child: TextButton(
-      //   child: Text("back"),
-      //   // （1） 前の画面に戻る
-      //   onPressed: () {
-      //     Navigator.pop(context);
-      //   },
-      // ),
     );
   }
 }
