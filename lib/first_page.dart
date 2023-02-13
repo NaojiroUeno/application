@@ -271,6 +271,10 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text("取得単位数: $_counter/122"),
+        ),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: SizedBox(
@@ -317,8 +321,5 @@ class _HomeState extends State<Home> {
         ),
       ),
     );
-    if (_counter == 122) {
-      print('OK');
-    }
   }
 }
