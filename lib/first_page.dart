@@ -9,6 +9,9 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _counter = 0;
+  int _a_counter = 0;
+  int _b_counter = 0;
+  int _c_counter = 0;
 
   void _incrementCounter(int credit) {
     setState(() {
@@ -21,6 +24,42 @@ class _HomeState extends State<Home> {
     setState(() {
       _counter -= credit;
       //print(_counter);
+    });
+  }
+
+  void _A_IncCounter(int credit) {
+    setState(() {
+      _a_counter += credit;
+    });
+  }
+
+  void _A_DecCounter(int credit) {
+    setState(() {
+      _a_counter -= credit;
+    });
+  }
+
+  void _B_IncCounter(int credit) {
+    setState(() {
+      _b_counter += credit;
+    });
+  }
+
+  void _B_DecCounter(int credit) {
+    setState(() {
+      _b_counter -= credit;
+    });
+  }
+
+  void _C_IncCounter(int credit) {
+    setState(() {
+      _c_counter += credit;
+    });
+  }
+
+  void _C_DecCounter(int credit) {
+    setState(() {
+      _c_counter -= credit;
     });
   }
 
@@ -273,11 +312,12 @@ class _HomeState extends State<Home> {
       child: Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text("取得単位数: $_counter/122"),
+          title: Text("取得単位数: $_counter/130"),
         ),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: SizedBox(
+            // ignore: sort_child_properties_last
             child: SingleChildScrollView(
               child: DataTable(
                 columns: [
@@ -300,6 +340,24 @@ class _HomeState extends State<Home> {
                               //print(e['credit']);
                             } else {
                               _decrementCounter(e['credit']);
+                            }
+                            if (e['type'] == 'A') {
+                              _A_IncCounter(e['credit']);
+                              //print(e['credit']);
+                            } else {
+                              _A_DecCounter(e['credit']);
+                            }
+                            if (e['type'] == 'B') {
+                              _B_IncCounter(e['credit']);
+                              //print(e['credit']);
+                            } else {
+                              _B_DecCounter(e['credit']);
+                            }
+                            if (e['type'] == 'C') {
+                              _C_IncCounter(e['credit']);
+                              //print(e['credit']);
+                            } else {
+                              _C_DecCounter(e['credit']);
                             }
                           });
                         },

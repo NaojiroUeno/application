@@ -1,5 +1,3 @@
-//import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:sample/first_page.dart';
 
@@ -33,16 +31,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // int _counter = 0;
-
-  // void _incrementCounter() {
-  //   setState(() {
-  //     _counter++;
-  //     // for debag
-  //     // print(_counter);
-  //   });
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,22 +42,10 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            // const Text(
-            //   'This is my first\nYou have pushed the button this many times:',
-            //   textAlign: TextAlign.center,
-            // ),
-            // Text(
-            //   '$_counter',
-            //   style: Theme.of(context).textTheme.headlineMedium,
-            // ),
             ElevatedButton(
               onPressed: () {
-                // （1） 指定した画面に遷移する
                 Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        // （2） 実際に表示するページ(ウィジェット)を指定する
-                        builder: (context) => Home()));
+                    context, MaterialPageRoute(builder: (context) => Home()));
               },
               child: Text(
                 "基礎工学部",
@@ -119,14 +95,48 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               style: ElevatedButton.styleFrom(onPrimary: Colors.black),
             ),
+            ElevatedButton(
+              onPressed: () {},
+              child: Text(
+                "人間科学学部",
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              style: ElevatedButton.styleFrom(onPrimary: Colors.black),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: Text(
+                "医学部",
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              style: ElevatedButton.styleFrom(onPrimary: Colors.black),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: Text(
+                "歯学部",
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              style: ElevatedButton.styleFrom(onPrimary: Colors.black),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: Text(
+                "薬学部",
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              style: ElevatedButton.styleFrom(onPrimary: Colors.black),
+            ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        //onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }
